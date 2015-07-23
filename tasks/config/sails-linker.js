@@ -28,6 +28,20 @@ module.exports = function(grunt) {
 			}
 		},
 
+		devJsAdmin: {
+			options: {
+				startTag: '<!--SCRIPTS_ADMIN-->',
+				endTag: '<!--SCRIPTS_ADMIN END-->',
+				fileTmpl: '<script src="%s"></script>',
+				appRoot: '.tmp/public'
+			},
+			files: {
+				'.tmp/public/**/*.html': require('../pipeline').jsAdminFilesToInject,
+				'views/**/*.html': require('../pipeline').jsAdminFilesToInject,
+				'views/**/*.ejs': require('../pipeline').jsAdminFilesToInject
+			}
+		},
+
 		devJsRelative: {
 			options: {
 				startTag: '<!--SCRIPTS-->',

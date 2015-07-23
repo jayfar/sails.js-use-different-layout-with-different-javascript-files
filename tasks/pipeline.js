@@ -35,6 +35,21 @@ var jsFilesToInject = [
 ];
 
 
+// Client-side javascript files to inject in order
+// (uses Grunt-style wildcard/glob/splat expressions)
+var jsAdminFilesToInject = [
+
+  // Load sails.io before everything else
+  //'jsAdmin/dependencies/sails.io.js',
+
+  // Dependencies like jQuery, or Angular are brought in here
+  'jsAdmin/dependencies/**/*.js',
+
+  // All of the rest of your client-side js files
+  // will be injected here in no particular order.
+  'jsAdmin/**/*.js'
+];
+
 // Client-side HTML templates are injected using the sources below
 // The ordering of these templates shouldn't matter.
 // (uses Grunt-style wildcard/glob/splat expressions)
@@ -57,6 +72,9 @@ module.exports.cssFilesToInject = cssFilesToInject.map(function(path) {
   return '.tmp/public/' + path;
 });
 module.exports.jsFilesToInject = jsFilesToInject.map(function(path) {
+  return '.tmp/public/' + path;
+});
+module.exports.jsAdminFilesToInject = jsAdminFilesToInject.map(function(path) {
   return '.tmp/public/' + path;
 });
 module.exports.templateFilesToInject = templateFilesToInject.map(function(path) {
