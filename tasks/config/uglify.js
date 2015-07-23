@@ -15,6 +15,10 @@ module.exports = function(grunt) {
 		dist: {
 			src: ['.tmp/public/concat/production.js'],
 			dest: '.tmp/public/min/production.min.js'
+		},
+		distAdmin: {
+			src: ['.tmp/public/concat/productionAdmin.js'],
+			dest: '.tmp/public/min/productionAdmin.min.js'
 		}
 	});
 

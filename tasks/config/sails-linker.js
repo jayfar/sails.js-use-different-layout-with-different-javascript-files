@@ -71,6 +71,20 @@ module.exports = function(grunt) {
 			}
 		},
 
+		prodJsAdmin: {
+			options: {
+				startTag: '<!--SCRIPTS_ADMIN-->',
+				endTag: '<!--SCRIPTS_ADMIN END-->',
+				fileTmpl: '<script src="%s"></script>',
+				appRoot: '.tmp/public'
+			},
+			files: {
+				'.tmp/public/**/*.html': ['.tmp/public/min/productionAdmin.min.js'],
+				'views/**/*.html': ['.tmp/public/min/productionAdmin.min.js'],
+				'views/**/*.ejs': ['.tmp/public/min/productionAdmin.min.js']
+			}
+		},
+
 		prodJsRelative: {
 			options: {
 				startTag: '<!--SCRIPTS-->',
